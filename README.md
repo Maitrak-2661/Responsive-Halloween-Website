@@ -1,117 +1,164 @@
-# 🎃 Halloween Night — Responsive Website
+<div align="center">
 
-A fully responsive, feature-rich Halloween-themed e-commerce landing page built with **HTML5**, **SCSS**, and **Vanilla JavaScript**. No frameworks, no back-end — just clean, well-structured front-end code.
+# 🎃 Halloween Night
 
-![Project Preview](preview.png)
+### A fully responsive, feature-rich Halloween-themed shopping experience — built with zero frameworks.
+
+<img src="preview.png" alt="Halloween Night — project preview" width="100%">
+
+<br>
+
+[![Live Demo](https://img.shields.io/badge/🔴_Live_Demo-View_Site-orange?style=for-the-badge)](https://maitrak-2661.github.io/Responsive-Halloween-Website/)
+[![PWA Ready](https://img.shields.io/badge/PWA-Installable-5A0FC8?style=for-the-badge&logo=pwa&logoColor=white)](#-pwa--offline-support)
+[![License](https://img.shields.io/badge/License-Educational-blue?style=for-the-badge)](#-license)
+
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/SCSS-CC6699?style=flat-square&logo=sass&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
+![No Framework](https://img.shields.io/badge/Framework-None-critical?style=flat-square)
+![Responsive](https://img.shields.io/badge/Responsive-Mobile→Desktop-success?style=flat-square)
+
+</div>
+
+---
+
+## 📖 Table of Contents
+
+- [Overview](#-overview)
+- [Live Demo](#-live-demo)
+- [Features](#-features)
+- [Shopping Cart](#-shopping-cart)
+- [Countdown Timer](#-countdown-timer)
+- [Theme System](#-theme-system)
+- [Accessibility](#-accessibility)
+- [PWA / Offline Support](#-pwa--offline-support)
+- [Project Structure](#-project-structure)
+- [Tech Stack](#️-tech-stack)
+- [Getting Started](#-getting-started)
+- [Page Sections](#-page-sections)
+- [Known Limitations](#-known-limitations)
+- [License](#-license)
+
+---
+
+## 🕸️ Overview
+
+**Halloween Night** is a static, front-end-only e-commerce landing page built from scratch with **HTML5, SCSS, and vanilla JavaScript** — no React, no Vue, no build framework of any kind. It was built to demonstrate that a genuinely feature-rich, production-feeling shopping experience — theming, a working cart, search, offline support — doesn't require a framework or a backend to get right.
+
+Every piece of "dynamic" behaviour (cart, favourites, theme choice) lives entirely in the browser, persisted with `localStorage`. There is no server, no database, no API — that's a deliberate design decision, not a missing feature.
+
+## 🔴 Live Demo
+
+**[maitrak-2661.github.io/Responsive-Halloween-Website](https://maitrak-2661.github.io/Responsive-Halloween-Website/)**
+
+Try it, install it as an app (see [PWA support](#-pwa--offline-support)), or switch off your wifi after your first visit and reload — it still works.
 
 ---
 
 ## ✨ Features
 
 ### Core UI
+
 | Feature | Details |
 |---|---|
 | 🎠 Hero Slider | Swiper.js carousel with 3 animated slides and pagination |
-| 🛍️ Trick or Treat Grid | Product cards with hover-reveal cart buttons |
-| 🆕 New Arrivals Slider | Centred auto-width Swiper carousel |
+| 🛍️ Trick or Treat Grid | Searchable product grid with add-to-cart buttons |
+| 🆕 New Arrivals Slider | Centred auto-width Swiper carousel, favourites + add-to-cart |
 | 💸 Discount Banner | Promotional section with scroll-reveal animation |
 | 📧 Newsletter | Email subscribe form |
 | 🦶 Footer | Multi-column layout with social links and decorative illustrations |
 
-### JavaScript-powered Enhancements
+### JavaScript-Powered Enhancements
+
 | Feature | Details |
 |---|---|
-| ⏳ Halloween Countdown | Banner counting days / hrs / min to Oct 31, rolls to next year automatically, updates live every minute |
-| 🛒 Shopping Cart | Add-to-cart from New Arrivals, quantity controls, remove, subtotal, demo checkout modal — all persisted to `localStorage` |
-| ❤️ Favourites | Heart-toggle on every New Arrivals card, persisted to `localStorage`, with a live badge in the nav |
-| 🔍 Search & Filter | Instant client-side filtering of the Trick or Treat section as you type — no page reload |
-| 🎨 Theme Switcher | Green · Red · Black themes, choice saved to `localStorage` and restored on load |
-| 🌑 Auto Dark Mode | Reads `prefers-color-scheme: dark` to set the Black theme as the default on first visit |
+| ⏳ Halloween Countdown | Live days / hrs / min banner counting to Oct 31, rolls to next year automatically |
+| 🛒 Shopping Cart | Add-to-cart from **both** New Arrivals and Trick or Treat, quantity controls, subtotal, demo checkout — fully `localStorage`-backed |
+| ❤️ Favourites | Heart-toggle on every New Arrivals card, persisted, with a live nav badge |
+| 🔍 Search & Filter | Instant, case-insensitive client-side filtering on Trick or Treat — no reload |
+| 🎨 Theme Switcher | Green · Red · Black themes, saved and restored across visits |
+| 🌑 Auto Dark Mode | Reads `prefers-color-scheme: dark` to pick a sensible first-visit default |
 | 🖼️ Lazy Loading | All below-the-fold `<img>` tags use `loading="lazy"` |
-| ♿ Accessibility | `aria-label` on every icon-only control, `aria-pressed` on toggles, `aria-live` on the countdown, `:focus-visible` outlines, full alt-text |
+| ♿ Accessibility | `aria-label`s, `aria-pressed` states, `aria-live` regions, visible `:focus-visible` outlines, full alt-text |
 | 🎉 Confetti Burst | CSS-keyframe candy/emoji explosion on "Book Now" — zero external libraries |
-| 🔄 Scroll Animations | ScrollReveal.js entrance animations on all major sections |
-| 🔝 Scroll-to-top | Button appears after 460 px of scroll |
-| 📌 Active Nav Link | Highlight updates as the user scrolls through sections |
-| 📲 PWA / Offline | Web App Manifest + service worker with cache-first strategy |
+| 🔄 Scroll Animations | ScrollReveal.js entrance animations across every major section |
+| 🔝 Scroll-to-Top | Appears after 460px of scroll |
+| 📌 Active Nav Link | Highlights the current section as you scroll |
+| 📲 PWA / Offline | Installable, works with no network connection after first visit |
 
 ---
 
 ## 🛒 Shopping Cart
 
-The cart is a pure front-end feature — no backend, no payment processing.
+A genuine, working cart — entirely front-end, no backend or payment processing.
 
-- **Add to cart** via the cart icon on any New Arrivals card. Adding the same item again increments the quantity.
-- **Cart drawer** slides in from the right, showing each item's image, name, unit price, quantity `+`/`−` controls, and a remove button.
-- **Subtotal** updates live as quantities change.
-- **Checkout** opens a confirmation modal making it clear this is a demo; clicking "Clear Cart" resets the cart.
-- Everything persists across page reloads via `localStorage` under the key `halloween-cart`.
-- Fully keyboard-accessible: Escape closes the drawer/modal, all controls have `aria-label`.
-
----
+- **Add to cart** from either the **New Arrivals** slider or the **Trick or Treat** grid — both sections wired independently, sharing one cart.
+- Adding the same item twice increments its quantity rather than duplicating the row.
+- **Cart drawer** slides in from the right: item image, name, unit price, `+`/`−` quantity controls, and a remove button per row.
+- **Subtotal** recalculates live as quantities change.
+- **Checkout** opens a confirmation modal that's explicit about being a demo — no real payment is processed — with a "Clear Cart" action.
+- Fully **keyboard-accessible**: `Escape` closes the drawer or modal, every control carries an `aria-label`.
+- Correctly handles **Swiper's loop-cloning** — New Arrivals uses `loop: true`, which duplicates slide DOM nodes; cart and favourites state stay perfectly in sync between a card and its clone via event delegation, not per-button listeners.
+- Persisted to `localStorage` under the key `halloween-cart`.
 
 ## ⏳ Countdown Timer
 
-A banner at the top of the page counts down to 31 October of the current year (rolls to next year if that date has passed). It sits in **normal document flow** (`position: static`) — `sticky` is not used because the ancestor `.main` has `overflow: hidden`, which breaks sticky at desktop widths.
+A banner at the top of the page counts down to 31 October of the current year (rolling to next year automatically once that date passes).
 
----
+It deliberately sits in **normal document flow** (`position: static`) rather than `sticky` — an earlier version used `sticky` and broke silently on desktop, because the ancestor `.main` element has `overflow: hidden` applied for an unrelated scroll-animation purpose, and an `overflow: hidden` ancestor breaks `position: sticky` on any descendant. The banner also carries its own `margin-top` matching the fixed header's height at each breakpoint, so it's never hidden underneath it.
 
 ## 🎨 Theme System
 
-Three themes switchable via the colour dots in the nav bar. The active choice is saved to `localStorage` and restored on every visit.
+Three themes, switchable via the colour dots in the nav bar. The active choice is saved to `localStorage` and restored on every visit — switching themes only ever touches two CSS custom properties (`--body-color`, `--container-color`), so the change is instant with no re-render.
 
-| Theme | Body gradient | Container gradient |
-|---|---|---|
-| 🟢 Green *(default)* | `hsl(104→58, 28%, 40%)` | `hsl(104→58, 28%, 35%)` |
-| 🔴 Red | `hsl(360→18, 28%, 40%)` | `hsl(360→18, 28%, 35%)` |
-| ⚫ Black | `hsl(30, 8%, 8%)` solid | `hsl(30, 8%, 10%)` solid |
+| Theme | Style |
+|---|---|
+| 🟢 Green *(default)* | Gradient |
+| 🔴 Red | Gradient |
+| ⚫ Black | Solid |
 
-> On first visit the site reads `prefers-color-scheme`. A dark-mode OS setting automatically selects the Black theme.
-
----
+> On first visit (before any manual choice exists), the site checks `prefers-color-scheme: dark` — visitors with a dark-mode OS default to the Black theme automatically.
 
 ## ♿ Accessibility
 
-- All icon-only interactive elements carry `aria-label` attributes.
-- Favourite and cart buttons use `aria-pressed` / `aria-label` to communicate state.
-- Cart panel and modal use `role="dialog"` and `aria-modal="true"`.
-- Countdown banner uses `aria-live="polite"`.
+- Every icon-only interactive control carries an `aria-label`.
+- Favourite and cart buttons expose state via `aria-pressed` / `aria-label`.
+- The cart panel and checkout modal use `role="dialog"` and `aria-modal="true"`.
+- The countdown banner uses `aria-live="polite"` so screen readers announce updates without interrupting.
 - Every `<img>` has meaningful `alt` text.
-- Keyboard focus is always visible via `:focus-visible` outline using `--first-color`.
-- Escape key closes the cart drawer and modal.
-
----
+- Keyboard focus is always visible via a themed `:focus-visible` outline — never removed, only styled.
 
 ## 📲 PWA / Offline Support
 
-- `manifest.json` at root — name, short_name, theme/background colours, icon entries.
-- `assets/js/sw.js` — service worker with cache-first strategy, versioned cache (`halloween-v2`), pre-caches all core assets on install, cleans up stale caches on activate.
-- Registered from `main.js` guarded with `'serviceWorker' in navigator`.
+The site is a fully installable Progressive Web App with genuine offline support, backed by a Service Worker using a **cache-first** strategy:
 
-> **Icon note:** `icon-192.png` and `icon-512.png` must be placed in `assets/img/`. Generate them from `favicon.png` using any image editor (resize to 192×192 and 512×512 px). Until they exist the manifest will log a warning but the site will still work.
+1. **Install** — every core asset (HTML, compiled CSS, JS bundles, key images) is pre-cached the first time you visit.
+2. **Activate** — any stale cache from a previous version is automatically cleared.
+3. **Fetch** — same-origin requests are served instantly from cache; cross-origin requests (Google Fonts, Boxicons CDN) are intentionally *not* cached, so those specific assets won't load offline — everything else will.
+
+Verified by disabling network access entirely in Chrome DevTools and reloading — the full page, including the theme switcher, cart, and countdown, renders correctly with zero network connection.
 
 ---
 
-## 🗂️ Project Structure
+## 📁 Project Structure
 
 ```
 responsive-halloween-website-main/
-│
-├── index.html                   # Single-page entry point
-├── manifest.json                # PWA manifest
-├── preview.png                  # Project screenshot
+├── index.html                   # All page markup
+├── manifest.json                # PWA install metadata
+├── README.md
 │
 ├── assets/
 │   ├── css/
-│   │   ├── styles.css           # Compiled output — do not edit directly
+│   │   ├── styles.css           # Compiled from SCSS — the file the browser loads
 │   │   └── swiper-bundle.min.css
 │   │
 │   ├── scss/
-│   │   ├── styles.scss          # Root manifest — imports all partials
+│   │   ├── styles.scss          # Root manifest — imports every partial below
 │   │   ├── base/
 │   │   │   └── _base.scss       # Reset, base elements, :focus-visible
 │   │   ├── config/
-│   │   │   └── _variables.scss  # All CSS custom properties
+│   │   │   └── _variables.scss  # Every CSS custom property
 │   │   ├── theme/
 │   │   │   └── _theme.scss      # Theme override hooks
 │   │   ├── layout/
@@ -134,15 +181,11 @@ responsive-halloween-website-main/
 │   │
 │   ├── js/
 │   │   ├── main.js              # All application JavaScript
-│   │   ├── sw.js                # Service worker
+│   │   ├── sw.js                # Service worker — offline caching
 │   │   ├── swiper-bundle.min.js
 │   │   └── scrollreveal.min.js
 │   │
-│   └── img/
-│       ├── favicon.png
-│       ├── icon-192.png         # ⚠ Must be provided — see PWA note above
-│       ├── icon-512.png         # ⚠ Must be provided — see PWA note above
-│       └── ...                  # All other site images
+│   └── img/                     # Site imagery, favicon, PWA icons
 ```
 
 ---
@@ -153,55 +196,69 @@ responsive-halloween-website-main/
 |---|---|
 | HTML5 | Semantic markup |
 | SCSS (partials) | Modular, variable-driven styling |
-| CSS Custom Properties | Runtime theming |
-| Vanilla JavaScript (ES6+) | All interactivity |
+| CSS Custom Properties | Runtime theming, read and written by JS |
+| Vanilla JavaScript (ES6+) | All interactivity — no framework |
 | [Swiper.js](https://swiperjs.com/) | Touch-friendly sliders |
 | [ScrollReveal.js](https://scrollrevealjs.org/) | Scroll entrance animations |
 | [Boxicons](https://boxicons.com/) | Icon set |
 | [Google Fonts — Poppins](https://fonts.google.com/specimen/Poppins) | Typography |
+| Service Worker + Cache API | Offline support |
+| Web App Manifest | PWA installability |
 
 ---
 
 ## 🚀 Getting Started
 
-No build step required to view the site. Open `index.html` in any modern browser.
+No build step is required just to view the site.
 
-```bash
+\`\`\`bash
 # Clone the repo
-git clone https://github.com/your-username/responsive-halloween-website.git
+git clone https://github.com/Maitrak-2661/Responsive-Halloween-Website.git
 
 # Open in browser
 start index.html       # Windows
 open index.html        # macOS
 xdg-open index.html    # Linux
-```
+\`\`\`
 
-To edit styles, compile SCSS → `assets/css/styles.css`:
+To edit styles, compile SCSS → \`assets/css/styles.css\`:
 
-```bash
+\`\`\`bash
 # Sass CLI (watch mode)
 sass --watch assets/scss/styles.scss assets/css/styles.css
 
 # VS Code: Live Sass Compiler extension → click "Watch Sass" in the status bar
-```
+\`\`\`
 
-> **Note:** The service worker only activates when the page is served over HTTP/HTTPS, not from `file://`. Use a local server (e.g. VS Code Live Server, `npx serve .`) to test offline/PWA features.
+> **Note:** the Service Worker only activates when served over HTTP/HTTPS, not from \`file://\`. Use a local server (VS Code Live Server, \`npx serve .\`) or the [live deployment](https://maitrak-2661.github.io/Responsive-Halloween-Website/) to test offline/PWA features.
 
 ---
 
 ## 📸 Page Sections
 
-1. **Header / Nav** — sticky, colour-changes on scroll, mobile hamburger, theme switcher, favourites badge, cart badge
-2. **Countdown Banner** — live days · hrs · min until Halloween (static flow, no sticky)
-3. **Home Slider** — 3-slide hero with ghost characters and "Book Now" confetti burst
+1. **Header / Nav** — sticky, background-shifts on scroll, mobile hamburger, theme switcher, favourites badge, cart badge
+2. **Countdown Banner** — live days · hrs · min until Halloween, static positioning
+3. **Home Slider** — 3-slide hero with ghost characters and a "Book Now" confetti burst
 4. **Category** — Ghosts · Pumpkins · Witch Hats with hover lift
-5. **About** — floating illustration, scroll-reveal text
-6. **Trick or Treat** — searchable product grid with add-to-cart buttons
-7. **Discount** — 50 % off promotional banner
-8. **New Arrivals** — swipeable cards with favourites toggle and add-to-cart
+5. **About** — floating illustration, scroll-reveal text sliding in from opposite directions
+6. **Trick or Treat** — searchable product grid with add-to-cart
+7. **Discount** — 50% off promotional banner
+8. **New Arrivals** — swipeable cards with favourites and add-to-cart
 9. **Newsletter** — email subscription form
 10. **Footer** — links, social icons, decorative illustrations
 
 ---
 
+## ⚠️ Known Limitations
 
+Documented honestly rather than hidden:
+
+- **No backend** — the cart is a genuine front-end demonstration; checkout does not process real payments or persist orders beyond the current browser.
+- **Offline scope** — cross-origin resources (Google Fonts, Boxicons CDN) are intentionally excluded from the Service Worker's cache and will not load without a network connection; all first-party content and styling will.
+- **No dedicated tablet breakpoint** — tablet widths currently share styling with desktop rather than having bespoke tuning.
+
+---
+
+Built by **Maitrak Manojbhai Kunjadiya** · B.Tech AI & ML · Internship Project at Orbize Infotech
+
+</div>
