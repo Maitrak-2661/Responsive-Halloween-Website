@@ -1,0 +1,103 @@
+/*=============== COUNTDOWN BANNER ===============*/
+/*
+ * Uses position: static (normal document flow).
+ * DO NOT use sticky or fixed here — the ancestor .main has
+ * overflow: hidden which breaks sticky at desktop widths.
+ * The banner simply sits at the top of <main>, directly above
+ * the Home section, exactly where it appears in the HTML.
+ *
+ * Clearance strategy:
+ *   Mobile  (<767px): body already has margin-top: var(--header-height),
+ *             so <main> starts below the header naturally. No margin needed.
+ *   Tablet+ (≥767px): body margin resets to 0, so <main> starts at y=0
+ *             and the fixed header (height: var(--header-height) + 1.5rem
+ *             at this breakpoint) would cover the banner. We push it down
+ *             with margin-top equal to the actual nav height at each breakpoint.
+ */
+
+.countdown-banner {
+    /* Normal flow — no position, top, or z-index */
+    background: var(--container-color);
+    border-bottom: 2px solid var(--first-color);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;                // stays single-line on desktop, wraps safely on small screens
+    gap: var(--mb-0-75);
+    padding: var(--mb-0-75) var(--mb-1-5);
+    text-align: center;
+
+    &__emoji {
+        font-size: 1.25rem;
+        line-height: 1;
+        animation: countdown-pulse 2s ease-in-out infinite;
+        display: inline-block;      // needed for transform in animation
+
+        &:last-child {
+            animation-delay: 1s;   // offset the two emojis
+        }
+    }
+
+    &__text {
+        font-family: var(--body-font);
+        font-size: var(--small-font-size);
+        font-weight: var(--font-semi-bold);
+        color: var(--title-color);
+        letter-spacing: .04em;
+        text-transform: uppercase;
+
+        // The live number spans
+        span {
+            display: inline-block;
+            min-width: 2ch;                  // stops layout jumping as digits change
+            color: var(--first-color);
+            font-weight: var(--font-black);
+            font-size: var(--normal-font-size);
+            font-variant-numeric: tabular-nums;
+        }
+    }
+}
+
+/*===== Pulse animation for emojis =====*/
+@keyframes countdown-pulse {
+    0%, 100% { transform: scale(1);    }
+    50%       { transform: scale(1.18); }
+}
+
+/*===== Tablet/desktop clearance (body margin resets to 0 at 767px) =====*/
+/*
+ * At ≥767px the nav grows to calc(var(--header-height) + 1.5rem).
+ * We match that exactly so the banner clears the header perfectly.
+ */
+@media screen and (min-width: 767px) {
+    .countdown-banner {
+        margin-top: calc(var(--header-height) + 1.5rem);
+        gap: var(--mb-1);
+        padding: var(--mb-1) var(--mb-2);
+
+        &__emoji { font-size: 1.5rem; }
+
+        &__text {
+            font-size: var(--normal-font-size);
+
+            span { font-size: var(--h3-font-size); }
+        }
+    }
+}
+
+/*===== Very small screens — tighten spacing =====*/
+@media screen and (max-width: 320px) {
+    .countdown-banner {
+        gap: var(--mb-0-5);
+        padding: var(--mb-0-5) var(--mb-1);
+
+        &__emoji { font-size: 1rem; }
+
+        &__text {
+            font-size: var(--smaller-font-size);
+
+            span { font-size: var(--small-font-size); }
+        }
+    }
+}
