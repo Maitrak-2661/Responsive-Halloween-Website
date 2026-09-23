@@ -204,7 +204,4 @@ sass --watch assets/scss/styles.scss assets/css/styles.css
 
 ---
 
-## 📄 License
 
-Original design by [Bedimcode](https://www.youtube.com/c/Bedimcode).  
-Enhanced with additional features for internship project purposes.
